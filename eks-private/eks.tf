@@ -20,6 +20,9 @@ module "my-eks-cluster" {
   cluster_version = "1.17"
   subnets         = module.eksvpc.private_subnets
   vpc_id          = module.eksvpc.vpc_id
+  cluster_endpoint_private_access = true
+  cluster_endpoint_public_access = false
+  cluster_endpoint_private_access_cidrs =  [module.eksvpc.default_vpc_cidr_block]
 
   worker_groups = [
     {
