@@ -26,8 +26,8 @@ module "my-eks-cluster" {
 
   worker_groups = [
     {
-      instance_type = "m4.large"
-      asg_max_size  = 2
+      instance_type = "t2.large"
+      asg_max_size  = 1
     }
   ]
 }
