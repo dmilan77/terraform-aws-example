@@ -8,16 +8,16 @@
 #   ingress_cidr_blocks = [data.aws_vpc.vpc.cidr_block]
 # }
 
-resource "aws_security_group" "allow_all_in_vpc" {
+resource "aws_security_group" "allow_tls" {
   name        = "allow_all_within_vpc"
   description = "Allow All  within traffic"
   vpc_id      = data.aws_vpc.vpc.id
 
   ingress {
-    description = "ALL from VPC"
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    description = "TLS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
     cidr_blocks = [data.aws_vpc.vpc.cidr_block]
   }
 

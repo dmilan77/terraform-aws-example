@@ -25,7 +25,7 @@ module "my-eks-cluster" {
   cluster_endpoint_public_access = false
   cluster_create_security_group = false
   # cluster_security_group_id =  module.private_api_vpc_443_sg.this_security_group_id
-  cluster_security_group_id =  aws_security_group.allow_all_in_vpc.id
+  cluster_security_group_id =  aws_security_group.allow_tls.id
   cluster_endpoint_private_access_cidrs =  [data.aws_vpc.vpc.cidr_block]
 
   worker_groups = [
