@@ -3,3 +3,8 @@ variable vpcname {
   default     = ""
   description = "description"
 }
+variable eksclustername {
+  type        = string
+  default     = ""
+  description = "description"
+}
