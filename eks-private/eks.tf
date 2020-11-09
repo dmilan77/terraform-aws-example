@@ -18,8 +18,8 @@ module "my-eks-cluster" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "my-eks-cluster"
   cluster_version = "1.17"
+  vpc_id          = data.aws_vpc.vpc.id
   subnets         = data.aws_subnet_ids.private.ids
-  vpc_id          = data.aws_vpc.vpc.vpc_id
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access = false
   cluster_endpoint_private_access_cidrs =  [module.eksvpc.default_vpc_cidr_block]
