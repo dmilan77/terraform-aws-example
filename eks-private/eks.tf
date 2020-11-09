@@ -22,7 +22,7 @@ module "my-eks-cluster" {
   subnets         = data.aws_subnet_ids.private.ids
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access = false
-  cluster_endpoint_private_access_cidrs =  [module.eksvpc.default_vpc_cidr_block]
+  cluster_endpoint_private_access_cidrs =  [data.aws_vpc.vpc.cidr_block]
 
   worker_groups = [
     {
