@@ -15,5 +15,12 @@ module "my_eks_private_vpc" {
     Terraform = "true"
     Environment = "dev"
   }
+
+  private_subnet_tags = {
+    Tier = "Private"
+  }
+  public_subnet_tags = {
+    Tier = "Public"
+  }
 }
 
